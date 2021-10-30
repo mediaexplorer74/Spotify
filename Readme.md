@@ -5,13 +5,16 @@
 Proof-of-concept (plays only 30 sec of each song...)
 
 ## My 2 cents
-* English translation of app UI
-* Project extension scheme
+* Backend pre-configuration (Developer Spotify zone tuning: client id, app secret... )))
+* Font/Element/Views resize... unaccurate, but fast.. sorry !
 
 
 ## Screenshots
 ![Shot 1](Images/shot1.png)
 
+
+## Very big problem
+I not solved the "30 sec" problem.... so.... epic fail :((((
 
 # Contribute!
 There's still a TON of things missing from this proof-of-concept (MVP) and areas of improvement 
