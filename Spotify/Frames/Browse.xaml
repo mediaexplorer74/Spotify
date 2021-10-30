@@ -1,0 +1,203 @@
+﻿<Page
+    x:Class="Spotify.Frames.Browse"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="806"
+    d:DesignHeight="315"
+    NavigationCacheMode="Required"
+    Unloaded="Page_Unloaded">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Pivot
+        Name="MainPivot"
+        SelectionChanged="MainPivot_SelectionChanged">
+
+        <PivotItem 
+            Name="Featured"
+            Margin="0,0,0,0">
+
+            <PivotItem.Header>
+                <TextBlock
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    Text="Featured"/>
+            </PivotItem.Header>
+
+            <RelativePanel>
+
+                <RelativePanel
+                    Name="FeaturedControls"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Margin="20,0,20,10">
+
+                    <TextBlock
+                        Name="FeaturedMessage"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        TextAlignment="Center"
+                        TextTrimming="CharacterEllipsis"
+                        Text="What others are listending to now..."/>
+
+                    <Button
+                        Name="FeaturedRefresh" 
+                        RelativePanel.LeftOf="FeaturedMore"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Style="{StaticResource IconButtonStyle}"
+                        Content="&#xE72C;"
+                        ToolTipService.ToolTip="Refresh"
+                        Click="FeaturedRefresh_Click"/>
+
+                    <Button
+                        Name="FeaturedMore"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Style="{StaticResource TextButtonStyle}"
+                        Content="More"
+                        ToolTipService.ToolTip="Load More"
+                        Click="FeaturedMore_Click"/>
+
+                </RelativePanel>
+
+                <GridView
+                    Name="FeaturedPlaylists"
+                    RelativePanel.Below="FeaturedControls"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    IsItemClickEnabled="True"
+                    ItemClick="FeaturedPlaylist_ItemClick">
+
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid
+                                Orientation="Horizontal"
+                                HorizontalChildrenAlignment="Left"
+                                VerticalChildrenAlignment="Stretch">
+                            </WrapGrid>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+
+                    <GridView.ItemContainerStyle>
+
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="GridViewItem">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </GridView.ItemContainerStyle>
+
+                </GridView>
+
+            </RelativePanel>
+
+        </PivotItem>
+
+        <PivotItem 
+            Name="NewReleases"
+            Margin="0,0,0,0">
+
+            <PivotItem.Header>
+                <TextBlock
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    Text="New Releases"/>
+            </PivotItem.Header>
+
+            <RelativePanel>
+
+                <RelativePanel
+                    Name="NewReleasesControls"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Margin="20,0,20,10">
+
+                    <TextBlock
+                        Name="NewReleasesMessage"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        TextAlignment="Center"
+                        TextTrimming="WordEllipsis"
+                        Text="New Albums and Singles"/>
+
+                    <Button
+                        Name="NewReleasesRefresh" 
+                        RelativePanel.LeftOf="NewReleasesMore"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Style="{StaticResource IconButtonStyle}"
+                        Content="&#xE72C;"
+                        ToolTipService.ToolTip="Refresh"
+                        Click="NewReleasesRefresh_Click"/>
+
+                    <Button
+                        Name="NewReleasesMore"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Style="{StaticResource TextButtonStyle}"
+                        Content="More"
+                        ToolTipService.ToolTip="Load More"
+                        Click="NewReleasesMore_Click"/>
+
+                </RelativePanel>
+
+                <GridView
+                    Name="NewReleasesAlbums"
+                    RelativePanel.Below="NewReleasesControls"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    IsItemClickEnabled="True"
+                    ItemClick="NewReleasesAlbums_ItemClick">
+
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid
+                                Orientation="Horizontal"
+                                HorizontalChildrenAlignment="Left"
+                                VerticalChildrenAlignment="Stretch">
+                            </WrapGrid>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+
+                    <GridView.ItemContainerStyle>
+
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="GridViewItem">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </GridView.ItemContainerStyle>
+
+                </GridView>
+
+            </RelativePanel>
+
+        </PivotItem>
+
+    </Pivot>
+
+</Page>

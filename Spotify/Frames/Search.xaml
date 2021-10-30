@@ -1,0 +1,231 @@
+﻿<Page
+    x:Class="Spotify.Frames.Search"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="402"
+    d:DesignHeight="315"
+    NavigationCacheMode="Required"
+    Unloaded="Page_Unloaded">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <RelativePanel Name="MainPanel">
+
+        <TextBox
+            Name="SearchBox"
+            RelativePanel.AlignHorizontalCenterWithPanel="True"
+            RelativePanel.AlignVerticalCenterWithPanel="True"
+            Margin="10,0,200,0"
+            Style="{StaticResource TextBoxStyle}"
+            PlaceholderText="Enter Search Text Here..."
+            KeyUp="SearchBox_KeyUp"/>
+
+        <ComboBox
+            Name="SearchType"
+            RelativePanel.RightOf="SearchBox"
+            RelativePanel.AlignVerticalCenterWith="SearchBox"
+            Margin="-195,0,0,0"
+            Style="{StaticResource ComboBoxStyle}"
+            SelectedIndex="0"
+            SelectionChanged="SearchButton_Click">
+
+            <ComboBoxItem Content="Playlist"/>
+            <ComboBoxItem Content="Track"/>
+            <ComboBoxItem Content="Album"/>
+
+        </ComboBox>
+
+        <Button
+            Name="SearchButton"
+            RelativePanel.RightOf="SearchType"
+            RelativePanel.AlignVerticalCenterWith="SearchBox"
+            Margin="-45,0,0,0"
+            Style="{StaticResource TextButtonStyle}"
+            FontSize="14"
+            Content="Search"
+            Click="SearchButton_Click"/>
+
+        <TextBlock
+            Name="Feedback"
+            RelativePanel.Below="SearchBox"
+            RelativePanel.AlignHorizontalCenterWithPanel="True"
+            Text="Please enter text to search for (I can't ready you mind...yet)"
+            Style="{StaticResource BodyTextBlockStyle}"/>
+
+        <RelativePanel
+            Name="ResultsHeaderContainer"
+            RelativePanel.Below="Feedback"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True">
+
+            <Grid
+                Name="PlaylistHeader"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="0,4,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="12"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="3"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Name"/>
+
+                <TextBlock
+                    Grid.Column="5"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Description"/>
+
+                <TextBlock
+                    Grid.Column="7"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Owner"/>
+
+                <TextBlock
+                    Grid.Column="9"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    HorizontalAlignment="Right"
+                    Text="Tracks"/>
+
+            </Grid>
+
+            <Grid
+                Name="TracklistHeader"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="0,4,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="12"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="3"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Name"/>
+
+                <TextBlock
+                    Grid.Column="5"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Artist"/>
+
+                <TextBlock
+                    Grid.Column="7"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Album"/>
+
+                <TextBlock
+                    Grid.Column="7"
+                    Grid.ColumnSpan="3"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    HorizontalAlignment="Right"
+                    Text="Duration"/>
+
+            </Grid>
+
+            <Grid
+                Name="AlbumlistHeader"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                Margin="0,4,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="12"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Grid.Column="3"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Name"/>
+
+                <TextBlock
+                    Grid.Column="5"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Artist"/>
+
+                <TextBlock
+                    Grid.Column="7"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    Text="Release Date"/>
+
+                <TextBlock
+                    Grid.Column="7"
+                    Grid.ColumnSpan="3"
+                    Style="{StaticResource TableHeaderTextBlockStyle}"
+                    HorizontalAlignment="Right"
+                    Text="Tracks"/>
+
+            </Grid>
+
+        </RelativePanel>
+
+        <ListView
+            Name="Results"
+            RelativePanel.Below="ResultsHeaderContainer"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignBottomWithPanel="True"
+            Margin="0,4,0,0"
+            IsItemClickEnabled="True"
+            ItemClick="Results_ItemClick">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+
+    </RelativePanel>
+
+</Page>

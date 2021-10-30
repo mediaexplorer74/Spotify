@@ -1,0 +1,54 @@
+﻿<UserControl
+    x:Class="Spotify.Controls.AlbumHero"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="100"
+    Width="250">
+
+    <RelativePanel>
+
+        <Image
+            Name="Image"
+            RelativePanel.AlignLeftWithPanel="True"
+            Width="100"
+            Height="100"
+            Margin="0,0,5,0"/>
+
+        <TextBlock
+            Name="DisplayName"
+            RelativePanel.RightOf="Image"
+            RelativePanel.AlignRightWithPanel="True"
+            MaxHeight="50"
+            Style="{StaticResource BodyTextBlockStyle}"
+            TextWrapping="WrapWholeWords"/>
+
+        <TextBlock
+            Name="ArtistName"
+            RelativePanel.RightOf="Image"
+            RelativePanel.Below="DisplayName"
+            RelativePanel.Above="Tracks"
+            RelativePanel.AlignRightWithPanel="True"
+            Margin="0,5,0,0"
+            Style="{StaticResource CaptionTextBlockStyle}"
+            TextWrapping="WrapWholeWords"/>
+
+        <TextBlock
+            Name="TracksLabel"
+            RelativePanel.RightOf="Image"
+            RelativePanel.AlignBottomWithPanel="True"
+            Margin="0,0,5,0"
+            Text="Tracks: "
+            Style="{StaticResource BodyTextBlockStyle}"/>
+
+        <TextBlock
+            Name="Tracks"
+            RelativePanel.RightOf="TracksLabel"
+            RelativePanel.AlignBottomWithPanel="True"
+            Style="{StaticResource BodyTextBlockStyle}"/>
+
+    </RelativePanel>
+
+</UserControl>
