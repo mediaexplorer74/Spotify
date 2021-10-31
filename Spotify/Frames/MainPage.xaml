@@ -363,7 +363,7 @@
                                        Canvas.ZIndex="1"
                                        Grid.Row="3"
                                        HorizontalAlignment="Stretch"
-                                       Margin="3,0,3,20"/>
+                                       Margin="10,0,10,50"/>
                 </RelativePanel>
 
             </SplitView.Content>

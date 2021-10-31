@@ -1,4 +1,4 @@
-# Spotify for Win10Mobile
+# Spotify 1.0 for Win10Mobile
 
 "Boxify" (Spotify for XBox One) fork
 
@@ -29,4 +29,4 @@ I wanted to put down some thank you's here for folks/projects/websites that were
 - [Boxify](https://github.com/aboe026/boxify/) - Original Spotify Client (UWP, for XBox One)
 
 
-Spotify 1.0.0.0 is RnD project only. AS-IS. No support. Distributed under the MIT License.  
+Spotify 1.0 is RnD project only. AS-IS. No support. Distributed under the MIT License.  
